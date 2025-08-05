@@ -10,7 +10,6 @@
         font-family: Arial, sans-serif;
         background: #f9f9f9;
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
         height: 100vh;
@@ -27,34 +26,37 @@
     }
     .card-container img {
         max-width: 100%;
-        max-height: 100vh;
+        max-height: 100%;
         object-fit: contain;
         border-radius: 12px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
     .refresh-btn {
         position: absolute;
-        bottom: 20px;
-        right: 20px;
-        background: rgba(255, 107, 107, 0.85); /* צבע ורוד-אדום */
+        bottom: 10px;
+        right: 10px;
+        background: rgba(255, 107, 107, 0.85);
         color: #fff;
         border: none;
-        padding: 10px 18px;
+        padding: 10px 16px;
         font-size: 14px;
         border-radius: 8px;
         cursor: pointer;
-        transition: background 0.3s;
+        z-index: 10;
     }
-    .refresh-btn:hover {
-        background: rgba(255, 76, 76, 1);
+    @media (max-height: 500px) {
+        .refresh-btn {
+            bottom: auto;
+            top: 10px;
+        }
     }
 </style>
 </head>
 <body>
 <div class="card-container" id="card-container">
     <!-- התמונה תופיע כאן -->
+    <button class="refresh-btn" onclick="showCard()">קבל קלף חדש</button>
 </div>
-<button class="refresh-btn" onclick="showCard()">קבל קלף חדש</button>
 <script>
     const cards = [
         "1.jpg",
@@ -68,10 +70,11 @@
     function showCard() {
         const randomIndex = Math.floor(Math.random() * cards.length);
         document.getElementById('card-container').innerHTML =
-            `<img src="${cards[randomIndex]}" alt="קלף אושר">`;
+            `<img src="${cards[randomIndex]}" alt="קלף אושר">
+             <button class="refresh-btn" onclick="showCard()">קבל קלף חדש</button>`;
     }
 
-    // טען קלף אוטומטית עם פתיחת הדף
+    // טעינת קלף כבר עם פתיחת הדף
     window.onload = showCard;
 </script>
 </body>
