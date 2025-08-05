@@ -22,41 +22,37 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        position: relative;
     }
     .card-container img {
-        max-width: 100%;
-        max-height: 100%;
+        max-width: 95%;
+        max-height: 95vh;
         object-fit: contain;
         border-radius: 12px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
     .refresh-btn {
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-        background: rgba(255, 107, 107, 0.85);
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: rgba(255, 107, 107, 0.9);
         color: #fff;
         border: none;
-        padding: 10px 16px;
-        font-size: 14px;
-        border-radius: 8px;
+        padding: 14px 22px;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 50px;
         cursor: pointer;
-        z-index: 10;
+        z-index: 9999;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     }
-    @media (max-height: 500px) {
-        .refresh-btn {
-            bottom: auto;
-            top: 10px;
-        }
+    .refresh-btn:hover {
+        background: rgba(255, 76, 76, 1);
     }
 </style>
 </head>
 <body>
-<div class="card-container" id="card-container">
-    <!-- התמונה תופיע כאן -->
-    <button class="refresh-btn" onclick="showCard()">קבל קלף חדש</button>
-</div>
+<div class="card-container" id="card-container"></div>
+<button class="refresh-btn" onclick="showCard()">🔄 קלף חדש</button>
 <script>
     const cards = [
         "1.jpg",
@@ -70,11 +66,10 @@
     function showCard() {
         const randomIndex = Math.floor(Math.random() * cards.length);
         document.getElementById('card-container').innerHTML =
-            `<img src="${cards[randomIndex]}" alt="קלף אושר">
-             <button class="refresh-btn" onclick="showCard()">קבל קלף חדש</button>`;
+            `<img src="${cards[randomIndex]}" alt="קלף אושר">`;
     }
 
-    // טעינת קלף כבר עם פתיחת הדף
+    // טעינת קלף עם פתיחת הדף
     window.onload = showCard;
 </script>
 </body>
