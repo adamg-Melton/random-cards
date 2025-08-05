@@ -3,15 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>קלף אושר יומי</title>
+<title>עזר ליום - רגעים קטנים של אושר</title>
 <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap" rel="stylesheet">
 <style>
     body {
         margin: 0;
         font-family: 'Assistant', sans-serif;
-        background: linear-gradient(135deg, #2c3e91, #0077b6, #00b4d8, #ffb703, #f25f5c);
-        background-size: 400% 400%;
-        animation: gradientBG 12s ease infinite;
+        background: linear-gradient(135deg, #001f3f, #004080, #0077b6);
+        background-size: cover;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -19,12 +18,6 @@
         overflow: hidden;
         position: relative;
         color: #fff;
-    }
-
-    @keyframes gradientBG {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
     }
 
     .card-container {
@@ -37,18 +30,18 @@
 
     .card-container img {
         max-width: 95%;
-        max-height: 95vh;
+        max-height: 90vh;
         object-fit: contain;
         border-radius: 12px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         background: #fff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
     .refresh-btn {
         position: fixed;
         bottom: 20px;
         left: 20px; /* בצד שמאל */
-        background: #0077b6; /* כחול מהפלטה */
+        background: #005f8a;
         color: #fff;
         border: none;
         padding: 14px 22px;
@@ -57,16 +50,30 @@
         border-radius: 50px;
         cursor: pointer;
         z-index: 9999;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         transition: background 0.3s ease;
     }
 
     .refresh-btn:hover {
-        background: #005f8a; /* כהה יותר */
+        background: #003d5c;
+    }
+
+    .title {
+        position: fixed;
+        top: 15px;
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+        color: #ffffff;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
     }
 </style>
 </head>
 <body>
+<div class="title">עזר ליום – רגעים קטנים של אושר</div>
 <div class="card-container" id="card-container"></div>
 <button class="refresh-btn" onclick="showCard()">🔄 קלף חדש</button>
 <script>
@@ -85,7 +92,6 @@
             `<img src="${cards[randomIndex]}" alt="קלף אושר">`;
     }
 
-    // טען קלף עם פתיחת הדף
     window.onload = showCard;
 </script>
 </body>
