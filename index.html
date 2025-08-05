@@ -7,7 +7,7 @@
 <style>
     body { font-family: Arial, sans-serif; text-align: center; background: #f9f9f9; padding: 20px; }
     h1 { color: #444; }
-    img { max-width: 80%; margin-top: 20px; border-radius: 12px; }
+    img { max-width: 80%; margin-top: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
     button { background: #ff6b6b; color: #fff; border: none; padding: 12px 24px; font-size: 18px; cursor: pointer; border-radius: 8px; margin-top: 20px; }
     button:hover { background: #ff4c4c; }
 </style>
@@ -19,12 +19,12 @@
 <div id="card-container"></div>
 <script>
     const cards = [
-        "cards/1.jpg",
-        "cards/2.jpg",
-        "cards/3.jpg",
-        "cards/4.jpg",
-        "cards/5.jpg",
-        "cards/6.jpg"
+        "1.jpg",
+        "2.jpg",
+        "3.jpg",
+        "4.jpg",
+        "5.jpg",
+        "6.jpg"
     ];
     function showCard() {
         const randomIndex = Math.floor(Math.random() * cards.length);
